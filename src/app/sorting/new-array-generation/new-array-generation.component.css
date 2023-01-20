@@ -1,14 +1,4 @@
-/* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
-
-* {
-    padding: 0;
-    margin: 0;
-}
-
-body {
-    overscroll-behavior: none;
-}
 
 .button {
     padding: 10px;
@@ -16,6 +6,4 @@ body {
     background-color: #fe46a5;
     font-family: 'Rubik', sans-serif;
     color: white;
-    cursor: pointer;
 }
-
