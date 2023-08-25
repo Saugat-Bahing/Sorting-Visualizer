@@ -3,21 +3,27 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NewArrayGenerationComponent } from './sorting/new-array-generation/new-array-generation.component';
-import { SortingModule } from './sorting/sorting.module';
-
+import { FormsModule } from '@angular/forms';
+import { BubbleSortService } from './services/sorting-algorithms/bubble-sort.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatIconModule} from '@angular/material/icon';
+import { DisplayComponent } from './modules/display/display.component';
+import { HeaderComponent } from './modules/header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    
+    HeaderComponent,
+    DisplayComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    SortingModule
+    FormsModule,
+    BrowserAnimationsModule,
+    MatIconModule
   ],
-  providers: [],
+  providers: [BubbleSortService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,68 @@
+.header-container {
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    background-color: #041C32;
+}
+
+.header-content {
+    width: 90%;
+    max-width: 1400px;
+    align-items: center;
+    display: flex;
+}
+
+.primary-btn {
+    border: none;
+    outline: none;
+    padding: 8px 10px;
+    border-radius: 5px;
+    background-color: #f5f5f5;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.algo-selector {
+    color: white;
+    display: flex;
+    align-items: center;
+    margin-left: 30px;
+    font-weight: 500;
+    cursor: pointer;
+    position: relative;
+}
+
+.algo-selector-caption {
+    display: flex;
+    align-items: center;
+}
+
+.range-selector {
+    display: flex;
+    color: white;
+    font-weight: 500;
+    margin-left: 20px;
+}
+
+.range-selector span {
+    padding-right: 10px;
+}
+
+.algo-options {
+    position: absolute;
+    top: 25px;
+    background-color: #fcfcfc;
+    color: black;
+    border-radius: 5px;
+    width: 120px;
+    padding: 5px;
+}
+
+.algo-option {
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.algo-option:hover {
+    background-color: #ebebeb;
+}

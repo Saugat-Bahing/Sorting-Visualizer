@@ -1,7 +1,7 @@
 <div [ngClass]="'display'">
     <div [ngClass]="'displayFrame'">
         <div *ngFor="let items of data; index as i" [ngClass]="'outerBar'" [style.width]="width|percent">
-            <div [ngClass]="highlight1(i) || highlight(i)" class="bar" [style.height]="data[i]|percent">
+            <div  class="bar" [style]="'background-color:'+getColor(i)"  [style.height]="data[i]|percent">
                 <!-- {{items|percent}} -->
             </div>
         </div>

@@ -1,20 +1,21 @@
 .display {
     width: 100vw;
-    height: 90vh;
+    height: calc(100vh - 80px);
     display: flex;
     justify-content: center;
     align-items: top;
-    background-color: #006a50;
+    background-color: #e0e0e0;
 }
 
 .displayFrame {
     display: flex;
     justify-content: center;
     width: 90vw;
+    max-width: 1400px;
 }
 
 .bar {
-    background-color: #00fdff;
+    background-color: #65068a;
 }
 
 .outerBar {

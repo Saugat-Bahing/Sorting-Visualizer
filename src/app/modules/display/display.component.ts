@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { DataControlService } from '../data-control.service';
+import { ColorService } from 'src/app/services/color.service';
+import { DataControlService } from 'src/app/services/data-control.service';
 
 @Component({
   selector: 'app-display',
@@ -11,7 +12,8 @@ export class DisplayComponent implements OnInit {
   data:number[]=[]
   width:number = 1/50;
   comDiv:number[] = [];
-  constructor(private dataControlService:DataControlService) { }
+  divColors:any[] = [];
+  constructor(private dataControlService:DataControlService, private colorService:ColorService) { }
 
   ngOnInit(): void {
     
@@ -19,7 +21,20 @@ export class DisplayComponent implements OnInit {
     this.dataControlService.leng.subscribe(length => {
       this.width = 1/length ;
     })
+    this.colorService.currentColors.subscribe((colors) => {
+        this.divColors = colors;
+        // console.log(this.divColors);
+    })
     this.dataControlService.currentComDiv.subscribe(data => this.comDiv = data);
+  }
+
+  getColor(index:number) {
+      const filteredDiv = this.divColors.filter((e)=> e.index == index);
+      if (filteredDiv.length > 0){
+          // console.log(filteredDiv[0].color)
+          return filteredDiv[0].color;
+      }
+      return '#65068a';
   }
 
   highlight(i:number){
