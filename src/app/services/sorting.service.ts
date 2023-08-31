@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { BubbleSortService } from './sorting-algorithms/bubble-sort.service';
 import { QuickSortService } from './sorting-algorithms/quick-sort.service';
+import { SortingAlgorithms } from '../models/algorithms.enum';
 
 @Injectable({
     providedIn: 'root',
@@ -9,6 +10,10 @@ import { QuickSortService } from './sorting-algorithms/quick-sort.service';
 export class SortingService {
     array: BehaviorSubject<number[]> = new BehaviorSubject([0]);
     currentArray = this.array.asObservable();
+    algorithm:BehaviorSubject<any> = new BehaviorSubject(SortingAlgorithms.BubbleSort);
+    currentAlgorithm = this.algorithm.asObservable();
+    sorting:BehaviorSubject<any> = new BehaviorSubject(false);
+    isSorting = this.sorting.asObservable();
 
     constructor(private bubbleSort:BubbleSortService, private quickSort:QuickSortService) {}
 
@@ -16,7 +21,27 @@ export class SortingService {
         this.array.next(array);
     }
 
-    sort() {
-        this.quickSort.sort();
+    changeAlgorithm(algo:SortingAlgorithms){
+        this.algorithm.next(algo);
+    }
+
+    async sort() {
+        this.currentAlgorithm.subscribe((algo:SortingAlgorithms)=>{
+            this.sorting.next(true);
+            switch(algo){
+                case SortingAlgorithms.BubbleSort: {
+                    this.bubbleSort.sort().then(()=> {
+                        this.sorting.next(false);
+                    })
+                    ; break;
+                }
+                case SortingAlgorithms.QuickSort: {
+                    this.quickSort.sort().then(()=> {
+                        this.sorting.next(false);
+                    }); 
+                    break;
+                }
+            }
+        }).unsubscribe();
     }
 }

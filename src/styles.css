@@ -11,6 +11,10 @@ body {
     overscroll-behavior: none;
 }
 
+:root {
+    --header-height: 80px;
+}
+
 .button {
     padding: 10px;
     border-radius: 5px;
@@ -23,3 +27,15 @@ body {
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+@media screen and (max-width: 750px) {
+    :root {
+        --header-height: 120px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    :root {
+        --header-height: 160px;
+    }
+}

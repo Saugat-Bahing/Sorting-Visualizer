@@ -1,13 +1,20 @@
 .header-container {
-    height: 80px;
+    height: var(--header-height);
     display: flex;
     justify-content: center;
     background-color: #041C32;
+    align-items: center;
 }
 
 .header-content {
     width: 90%;
     max-width: 1400px;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.selectors {
     align-items: center;
     display: flex;
 }
@@ -26,7 +33,7 @@
     color: white;
     display: flex;
     align-items: center;
-    margin-left: 30px;
+    margin-left: 50px;
     font-weight: 500;
     cursor: pointer;
     position: relative;
@@ -41,7 +48,7 @@
     display: flex;
     color: white;
     font-weight: 500;
-    margin-left: 20px;
+    margin-left: 50px;
 }
 
 .range-selector span {
@@ -56,6 +63,7 @@
     border-radius: 5px;
     width: 120px;
     padding: 5px;
+    left: -18px;
 }
 
 .algo-option {
@@ -65,4 +73,39 @@
 
 .algo-option:hover {
     background-color: #ebebeb;
+}
+
+.range-algo-container {
+    display: flex;
+}
+
+@media screen and (max-width: 750px) {
+    .selectors {
+        margin-bottom: 15px;
+    }
+
+    .header-content{
+        flex-direction: column;
+        width: 98vw;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .selectors {
+        flex-direction: column-reverse;
+    }
+
+    .algo-selector {
+        margin-left: 0px;
+    }
+
+    .range-selector {
+        margin-left: 0px;
+    }
+
+    .range-algo-container{
+        margin-bottom: 10px;
+        width: 90vw;
+        justify-content: space-between;
+    }
 }

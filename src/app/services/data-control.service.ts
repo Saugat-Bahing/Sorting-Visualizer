@@ -1,5 +1,6 @@
 import { Injectable, EventEmitter, Output } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { SortingAlgorithms } from '../models/algorithms.enum';
 
 @Injectable({
     providedIn: 'root',
@@ -8,7 +9,6 @@ export class DataControlService {
     sortingArray: number[] = [];
     arrayLength: number = 50;
     comDiv: number[] = [];
-
     private dataSource = new BehaviorSubject(this.sortingArray);
     private comparingDiv = new BehaviorSubject(this.comDiv);
     leng = new EventEmitter<number>();

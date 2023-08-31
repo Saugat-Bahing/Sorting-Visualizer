@@ -1,21 +1,22 @@
 <div class="header-container">
     <div class="header-content">
-        <button class="primary-btn" (click)="generateNewArray()">Generate New Array</button>
-        <div class="range-selector">
-            <span>Range</span>
-            <input type="range" min="2" max="200" value="50" class="slider" id="myRange" (input)="changeRange($event)">
-        </div>
-        <div class="algo-selector">
-            <span class="algo-selector-caption" (click)="showSelectAlgo = true">
-                <span>Alogrithms</span><mat-icon>keyboard_arrow_down</mat-icon>
-            </span>
-            <div class="algo-options" *ngIf="showSelectAlgo">
-                <div class="algo-option" *ngFor="let algo of algorithms">{{algo}}</div>
+        <div class="selectors">
+            <button class="primary-btn" [disabled]="sorting" (click)="generateNewArray()">Generate New Array</button>
+            <div class="range-algo-container">
+                <div class="range-selector">
+                    <span>Range</span>
+                    <input [disabled]="sorting" type="range" min="2" max="200" value="50" class="slider" id="myRange" (input)="changeRange($event)">
+                </div>
+                <div class="algo-selector" appOutClick (outClick)="showSelectAlgo=false">
+                    <span class="algo-selector-caption" (click)="showSelectAlgo = true">
+                        <span>Alogrithms</span><mat-icon>keyboard_arrow_down</mat-icon>
+                    </span>
+                    <div class="algo-options" *ngIf="showSelectAlgo" >
+                        <div class="algo-option" (click)="chnageAlog(algo)" *ngFor="let algo of algorithms">{{algo}}</div>
+                    </div>
+                </div>
             </div>
         </div>
+        <button [disabled]="sorting" class="primary-btn sort-btn" (click)="sort()">{{selectedAlgorithm}}</button>
     </div>
-    <div class="sorting">
-        <button [ngClass] = "'button'" (click)="bubbleSort()">Bubble Sort</button>
-    </div>
-    <button (click)="sort()">{{selectedAlgorithm}}</button>
 </div>

@@ -9,12 +9,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatIconModule} from '@angular/material/icon';
 import { DisplayComponent } from './modules/display/display.component';
 import { HeaderComponent } from './modules/header/header.component';
+import { OutClickDirective } from './directives/out-click.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    DisplayComponent
+    DisplayComponent,
+    OutClickDirective,
   ],
   imports: [
     BrowserModule,
