@@ -1,4 +1,6 @@
 export enum SortingAlgorithms{
     BubbleSort = "Bubble Sort",
-    QuickSort = "Quick Sort"
+    SelectionSort = "Selection Sort",
+    QuickSort = "Quick Sort",
+    MergeSort = "Merge Sort"
 }

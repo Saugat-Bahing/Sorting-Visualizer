@@ -16,18 +16,7 @@ export class ColorService {
         this.colors.next([]);
     }
 
-    addColors(indexes: number[], color: string) {
-        let colors: any[] = [];
-        this.currentColors
-            .subscribe((colors) => {
-                colors = colors;
-            })
-            .unsubscribe();
-
-        indexes.forEach((no) => {
-            colors = colors.filter((c) => c.index != no);
-            colors.push({ index: no, color: color });
-        });
+    setColors(colors:{index:number, color:string}[]) {
         this.colors.next(colors);
     }
 }

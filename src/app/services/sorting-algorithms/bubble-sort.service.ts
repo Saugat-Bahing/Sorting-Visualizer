@@ -13,10 +13,9 @@ export class BubbleSortService {
         for (let i = 0; i < array.length; i++) {
             for (let j = 0; j < array.length - i - 1; j++) {
                     this.colorService.resetColors();
-                    this.colorService.addColors([j], 'blue');
+                    this.colorService.setColors([{index:j, color:'blur'}]);
                     if (array[j] > array[j + 1]) {
-                      console.log("color")
-                        this.colorService.addColors([j, j+1], 'red');
+                        this.colorService.setColors([{index:j, color:'red'}, {index:j, color:'red'}]);
                         const temp = array[j];
                         array[j] = array[j + 1];
                         array[j + 1] = temp;

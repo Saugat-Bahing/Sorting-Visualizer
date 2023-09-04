@@ -9,7 +9,6 @@ export class OutClickDirective {
   @Output() outClick:EventEmitter<boolean> = new EventEmitter();
   @HostListener('window:click', ['$event'])
   click(event:any){
-      console.log(event);
       if (!this.eleRef.nativeElement.contains(event.target)) {
         this.outClick.emit(true);
       }

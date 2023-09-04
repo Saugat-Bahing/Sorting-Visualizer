@@ -12,10 +12,12 @@ import { DataControlService } from 'src/app/services/data-control.service';
 export class HeaderComponent implements OnInit {
 
   arrayLength = 20;
-  algorithms = [SortingAlgorithms.BubbleSort, SortingAlgorithms.QuickSort];
+  algorithms = [SortingAlgorithms.BubbleSort, SortingAlgorithms.SelectionSort, SortingAlgorithms.QuickSort, SortingAlgorithms.MergeSort];
   showSelectAlgo = false;
+  sortingAlgorithms = SortingAlgorithms;
   selectedAlgorithm = this.algorithms[0];
   sorting = false;
+
 
   constructor(private ragService:RandomArrayGeneratorService, private dcService:DataControlService, private sortingService:SortingService) { }
 
@@ -23,7 +25,6 @@ export class HeaderComponent implements OnInit {
       this.generateNewArray();
       this.sortingService.isSorting.subscribe((sorting)=>{
         this.sorting = sorting;
-        console.log(sorting)
       });
   }
 
